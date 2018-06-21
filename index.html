@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Shadows+Into+Light|Slabo+27px" rel="stylesheet">
+
+
+</head>
+<body>
+<div class="container bg-info mt-5">
+
+    <h1 class="text-center py-3 text-light">Celsius to Fahrenheit</h1>
+
+    <form class="text-light">
+        <p>Celsius: <input type="text" size="15" name="celsius"></p>
+        <p>Fahrenheit: <input type="text" size="15" name="fahrenheit"></p>
+        <input class="btn btn-success" type="button" value="Calculate" onclick="temp(this.form)">
+    </form>
+    <br>
+    <p class="text-light text-center" id="text"></p>
+    <img class="rounded mx-auto d-block" id="demo" src=""><br>
+
+</div>
+
+<script type="text/javascript">
+    function temp(form) {
+        form.fahrenheit.value = form.celsius.value * 1.8 + 32;
+        form.celsius.value = (form.fahrenheit.value - 32) * 1.8;
+
+        if (form.fahrenheit.value < 32) {
+            document.getElementById("text").innerHTML = "It's too cold outside! Wear a coat.";
+            document.getElementById("demo").src = "img/jacket.jpg";
+        } else {
+            document.getElementById("text").innerHTML = "";
+            document.getElementById("demo").src = "";
+        }
+    }
+</script>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+</body>
+</html>
